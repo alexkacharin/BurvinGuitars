@@ -27,41 +27,6 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<!--<header>
-    <?php
-/*    NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
-        ],
-    ]);
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
-    ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-    }
-
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav me-auto mb-2 mb-md-0'],
-        'items' => $menuItems,
-    ]);
-    if (Yii::$app->user->isGuest) {
-        echo Html::tag('div',Html::a('Login',['/site/login'],['class' => ['btn btn-link login text-decoration-none']]),['class' => ['d-flex']]);
-    } else {
-        echo Html::beginForm(['/site/logout'], 'post', ['class' => 'd-flex'])
-            . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link logout text-decoration-none']
-            )
-            . Html::endForm();
-    }
-    NavBar::end();
-    */?>
-</header>-->
 <header id="header" class="fixed-top header-transparent">
     <div class="container d-flex align-items-center justify-content-between position-relative">
 
@@ -72,12 +37,26 @@ AppAsset::register($this);
 
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="nav-link scrollto active" href="#hero">Домой</a></li>
+                <li><a class="nav-link scrollto " href="#hero">Домой</a></li>
                 <li><a class="nav-link scrollto" href="#about">О нас</a></li>
                 <li><a class="nav-link scrollto" href="#services">Конструктор</a></li>
                 <li><a class="nav-link scrollto" href="#portfolio">Портфолио</a></li>
                 <li><a class="nav-link scrollto" href="#team">Команда</a></li>
                 <li><a class="nav-link scrollto" href="#contact">Контакты</a></li>
+                <?php if (Yii::$app->user->isGuest) {
+                echo '<li><a class="nav-link scrollto" href="/site/signup">Регистрация</a></li>';
+                }
+                if (Yii::$app->user->isGuest) {
+                    echo '<li><a class="nav-link scrollto" href="/site/login">Войти</a></li>';
+                } else {
+                    echo Html::beginForm(['/site/logout'], 'post', [])
+                        . Html::submitButton(
+                            'Выйти (' . Yii::$app->user->identity->username . ')',
+                            ['class' => 'nav-link scrollto']
+                        )
+                        . Html::endForm();
+                }
+                ?>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->

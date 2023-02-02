@@ -10,29 +10,15 @@ use yii\web\AssetBundle;
 class MyAsset extends AssetBundle
 {
     public $basePath = '@webroot';
-    public $baseUrl = '@web/vendor';
+    public $baseUrl = '@web';
     public $css = [
-
-        'bootstrap-icons/bootstrap-icons.css',
-        'boxicons/css/boxicons.min.css',
-        'glightbox/css/glightbox.min.css',
-        'swiper/swiper-bundle.min.css',
+        'css/style_login.css'
     ];
-
     public $js = [
-        'purecounter/purecounter_vanilla.js',
-        'aos/aos.js',
-        'bootstrap/js/bootstrap.bundle.min.js',
-        'glightbox/js/glightbox.min.js',
-        'isotope-layout/isotope.pkgd.min.js',
-        'swiper/swiper-bundle.min.js',
-        'php-email-form/validate.js',
+
     ];
 
     public $depends = [
-        'yii\web\YiiAsset',
+
     ];
-
 }
-
-

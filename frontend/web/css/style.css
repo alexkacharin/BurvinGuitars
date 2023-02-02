@@ -145,6 +145,7 @@ h6 {
   align-items: center;
 }
 
+.navbar button,
 .navbar li {
   position: relative;
 }
@@ -164,6 +165,22 @@ h6 {
   transition: 0.3s;
 }
 
+.navbar button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  margin-left: 10px;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  transition: 0.3s;
+  border: none;
+  background: none;
+}
+
 .navbar a i,
 .navbar a:focus i {
   font-size: 12px;
@@ -171,9 +188,11 @@ h6 {
   margin-left: 5px;
 }
 
+
 .navbar a:hover,
 .navbar .active,
 .navbar .active:focus,
+.navbar button:hover,
 .navbar li:hover>a {
   background: rgba(255, 255, 255, 0.2);
 }
@@ -1469,4 +1488,16 @@ section {
   #footer .footer-top .footer-info {
     margin: -20px 0 30px 0;
   }
+}
+
+.site-login {
+  height: 700px;
+  border-radius: 8px;
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+}
+.site-login p{
+  font-size: 13px;
+  color: #fff;
 }

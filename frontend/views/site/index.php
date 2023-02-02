@@ -4,7 +4,7 @@
 
 use yii\helpers\Html;
 
-$this->title = 'My Yii Application';
+$this->title = 'Burvin guitars';
 ?>
 <section id="hero">
     <div class="hero-container" data-aos="fade-up">
