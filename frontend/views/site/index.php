@@ -2,10 +2,12 @@
 
 /** @var yii\web\View $this */
 
+use yii\bootstrap5\Modal;
 use yii\helpers\Html;
 
 $this->title = 'Burvin guitars';
 ?>
+
 <section id="hero">
     <div class="hero-container" data-aos="fade-up">
         <h1>Добро пожаловать</h1>
@@ -15,7 +17,15 @@ $this->title = 'Burvin guitars';
 </section>
 
 <main id="main">
+    <?php
+    Modal::begin([
+        'title' => 'Hellow',
+        'toggleButton' => ['label' => 'click'],
+    ]);
 
+    echo 'Modal Content...';
+
+    Modal::end();?>
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
         <div class="container">

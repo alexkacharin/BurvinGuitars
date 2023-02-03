@@ -5,11 +5,13 @@
 
 use common\widgets\Alert;
 use frontend\assets\AppAsset;
+use frontend\widgets\LoginFormWidget;
 use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
+use yii\bootstrap5\Modal;
 use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
-
+use kartik\dialog\Dialog;
 AppAsset::register($this);
 
 ?>
@@ -25,6 +27,7 @@ AppAsset::register($this);
 
 </head>
 <body>
+
 <?php $this->beginBody() ?>
 
 <header id="header" class="fixed-top header-transparent">
@@ -43,19 +46,19 @@ AppAsset::register($this);
                 <li><a class="nav-link scrollto" href="#portfolio">Портфолио</a></li>
                 <li><a class="nav-link scrollto" href="#team">Команда</a></li>
                 <li><a class="nav-link scrollto" href="#contact">Контакты</a></li>
-                <?php if (Yii::$app->user->isGuest) {
-                echo '<li><a class="nav-link scrollto" href="/site/signup">Регистрация</a></li>';
-                }
+                <?php
                 if (Yii::$app->user->isGuest) {
+                    echo '<li><a class="nav-link scrollto" href="/site/signup">Регистрация</a></li>';
                     echo '<li><a class="nav-link scrollto" href="/site/login">Войти</a></li>';
                 } else {
                     echo Html::beginForm(['/site/logout'], 'post', [])
                         . Html::submitButton(
                             'Выйти (' . Yii::$app->user->identity->username . ')',
-                            ['class' => 'nav-link scrollto']
+                            ['class' => 'nav-link scrollto','options' => ['data-toggle' => 'modal', 'data-target' => '#login-modal']],
                         )
                         . Html::endForm();
                 }
+
                 ?>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
